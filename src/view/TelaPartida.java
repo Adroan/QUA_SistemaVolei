@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -60,6 +61,7 @@ public class TelaPartida extends JFrame implements Observer {
         jlNomeA.setFont(new Font("Calibri", 1, 60));
         jlNomeA.setForeground(Color.BLUE);
         constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(0, 50, 0, 50);
         constraints.gridx = 0;
         constraints.gridy = 0;
         jpTimes.add(jlNomeA, constraints);
@@ -72,7 +74,7 @@ public class TelaPartida extends JFrame implements Observer {
         constraints.gridx = 2;
         constraints.gridy = 0;
         jpTimes.add(jlNomeB, constraints);
-
+        constraints.insets = new Insets(0, 0, 0, 0);
         jlX = new JLabel(new ImageIcon("src/utils/vs.png"));
 //        jlX.setMaximumSize(new Dimension(30, 30));
         jlX.setSize(10, 10);
@@ -88,6 +90,7 @@ public class TelaPartida extends JFrame implements Observer {
         jtSetA.setText("" + gPartida.getPartida().getA().getSets());
         jtSetA.setEditable(false);
         jtSetA.setFont(new Font("Calibri", 1, 50));
+        constraints.insets = new Insets(0, 10, 0, 10);
         constraints.gridx = 0;
         constraints.gridy = 0;
         jpPontuacao.add(jtSetA, constraints);
@@ -96,6 +99,7 @@ public class TelaPartida extends JFrame implements Observer {
         jtPontuacaoA.setText("" + gPartida.getPartida().getA().getPontuacao());
         jtPontuacaoA.setEditable(false);
         jtPontuacaoA.setFont(new Font("Calibri", 1, 60));
+        constraints.insets = new Insets(0, 0, 0, 20);
         constraints.gridx = 1;
         constraints.gridy = 0;
         jpPontuacao.add(jtPontuacaoA, constraints);
@@ -104,6 +108,7 @@ public class TelaPartida extends JFrame implements Observer {
         jtHorario.setText(gPartida.getPartida().getHorario());
         jtHorario.setEditable(false);
         jtHorario.setFont(new Font("Calibri", 1, 40));
+        constraints.insets = new Insets(0, 0, 0, 0);
         constraints.gridx = 2;
         constraints.gridy = 0;
         jpPontuacao.add(jtHorario, constraints);
@@ -112,6 +117,7 @@ public class TelaPartida extends JFrame implements Observer {
         jtPontuacaoB.setText("" + gPartida.getPartida().getB().getPontuacao());
         jtPontuacaoB.setEditable(false);
         jtPontuacaoB.setFont(new Font("Calibri", 1, 60));
+        constraints.insets = new Insets(0, 20, 0, 0);
         constraints.gridx = 3;
         constraints.gridy = 0;
 
@@ -121,6 +127,7 @@ public class TelaPartida extends JFrame implements Observer {
         jtSetB.setText("" + gPartida.getPartida().getB().getSets());
         jtSetB.setEditable(false);
         jtSetB.setFont(new Font("Calibri", 1, 50));
+        constraints.insets = new Insets(0, 10, 0, 10);
         constraints.gridx = 4;
         constraints.gridy = 0;
         jpPontuacao.add(jtSetB, constraints);
@@ -132,6 +139,7 @@ public class TelaPartida extends JFrame implements Observer {
                 gPartida.atualizarPontuacao("a");
             }
         });
+        constraints.insets = new Insets(0, 0, 0, 20);
         constraints.gridx = 1;
         constraints.gridy = 1;
         jpPontuacao.add(jbPontoA, constraints);
@@ -143,10 +151,11 @@ public class TelaPartida extends JFrame implements Observer {
                 gPartida.atualizarPontuacao("b");
             }
         });
+        constraints.insets = new Insets(0, 20, 0, 0);
         constraints.gridx = 3;
         constraints.gridy = 1;
         jpPontuacao.add(jbPontoB, constraints);
-
+        constraints.insets = new Insets(0, 0, 0, 0);
         jpHistorico = new JPanel();
         jtHistorico = new JTextArea(5, 1);
         jtHistorico.setText(gPartida.getHistoricoSets());
@@ -158,19 +167,19 @@ public class TelaPartida extends JFrame implements Observer {
 
         constraints.fill = GridBagConstraints.HORIZONTAL;
         jpTimes.setSize(333, 1000);
-        jpTimes.setBackground(new Color(192,192,192));
+        jpTimes.setBackground(new Color(192, 192, 192));
         constraints.gridx = 0;
         constraints.gridy = 0;
         add(jpTimes, constraints);
 
         jpPontuacao.setSize(333, 1000);
-        jpPontuacao.setBackground(new Color(192,192,192));
+        jpPontuacao.setBackground(new Color(192, 192, 192));
         constraints.gridx = 0;
         constraints.gridy = 1;
         add(jpPontuacao, constraints);
 
         jpHistorico.setSize(333, 1000);
-        jpHistorico.setBackground(new Color(192,192,192));
+        jpHistorico.setBackground(new Color(192, 192, 192));
         constraints.gridx = 0;
         constraints.gridy = 20;
         add(jpHistorico, constraints);
@@ -203,7 +212,7 @@ public class TelaPartida extends JFrame implements Observer {
         setTitle("Estádio Municipal");
         setBounds(200, 200, 1000, 1000);
         setSize(1000, 1000);
-        setBackground(new Color(0, 0, 0));
+        setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setLayout(new GridBagLayout());
