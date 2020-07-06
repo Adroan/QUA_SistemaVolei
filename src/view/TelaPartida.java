@@ -58,6 +58,7 @@ public class TelaPartida extends JFrame implements Observer {
         jlNomeA = new JLabel();
         jlNomeA.setText(gPartida.getPartida().getA().getNome());
         jlNomeA.setFont(new Font("Calibri", 1, 60));
+        jlNomeA.setForeground(Color.BLUE);
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -66,6 +67,7 @@ public class TelaPartida extends JFrame implements Observer {
         jlNomeB = new JLabel();
         jlNomeB.setText(gPartida.getPartida().getB().getNome());
         jlNomeB.setFont(new Font("Calibri", 1, 60));
+        jlNomeB.setForeground(Color.RED);
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 2;
         constraints.gridy = 0;
@@ -149,25 +151,26 @@ public class TelaPartida extends JFrame implements Observer {
         jtHistorico = new JTextArea(5, 1);
         jtHistorico.setText(gPartida.getHistoricoSets());
         jtHistorico.setSize(333, 1000);
+        jtHistorico.setEditable(false);
         constraints.gridx = 0;
         constraints.gridy = 0;
         jpHistorico.add(jtHistorico, constraints);
 
         constraints.fill = GridBagConstraints.HORIZONTAL;
         jpTimes.setSize(333, 1000);
-
+        jpTimes.setBackground(new Color(192,192,192));
         constraints.gridx = 0;
         constraints.gridy = 0;
         add(jpTimes, constraints);
 
         jpPontuacao.setSize(333, 1000);
-
+        jpPontuacao.setBackground(new Color(192,192,192));
         constraints.gridx = 0;
         constraints.gridy = 1;
         add(jpPontuacao, constraints);
 
         jpHistorico.setSize(333, 1000);
-
+        jpHistorico.setBackground(new Color(192,192,192));
         constraints.gridx = 0;
         constraints.gridy = 20;
         add(jpHistorico, constraints);
@@ -200,7 +203,7 @@ public class TelaPartida extends JFrame implements Observer {
         setTitle("Estádio Municipal");
         setBounds(200, 200, 1000, 1000);
         setSize(1000, 1000);
-        setBackground(new Color(255, 255, 255));
+        setBackground(new Color(0, 0, 0));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setLayout(new GridBagLayout());

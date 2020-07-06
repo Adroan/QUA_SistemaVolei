@@ -20,6 +20,7 @@ public class GerenciadorPartida {
     private Partida partida;
     private int numSet;
     private String vencedor;
+    private boolean aVence;
     private List<Observer> observadores = new ArrayList<>();
 
     public GerenciadorPartida(String timeA,String timeB, String horario) {
@@ -44,10 +45,12 @@ public class GerenciadorPartida {
             }
         }
         if (isAVecedorSet()) {
+            aVence = true;
             for (Observer obs : observadores) {
                 obs.notificarAVencedor();
             }
         } else if (isBVencedorSet()) {
+            aVence=false;
             for (Observer obs : observadores) {
                 obs.notificarBVencedor();
             }
@@ -137,6 +140,10 @@ public class GerenciadorPartida {
 
     public String getVencedor() {
         return vencedor;
+    }
+
+    public boolean isaVence() {
+        return aVence;
     }
     
 }
